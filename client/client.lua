@@ -266,32 +266,15 @@ RegisterNetEvent('cdn-fuel:client:FinalMenu', function(purchasetype)
 	local finalfuel
 	if curfuel < 10 then finalfuel = string.sub(curfuel, 1, 1) else finalfuel = string.sub(curfuel, 1, 2) end
 	local maxfuel = (100 - finalfuel - 1)
-	local wholetankcost = (FuelPrice * maxfuel)
-	local wholetankcostwithtax = math.ceil(FuelPrice * maxfuel + GlobalTax(wholetankcost))
-	local fuel = exports['qb-input']:ShowInput({
-		header = "Select the Amount of Fuel<br>Current Price: $" ..
-		FuelPrice .. " / Liter <br> Current Fuel: " .. finalfuel .. " Liters <br> Full Tank Cost: $" ..
-		wholetankcostwithtax .. "",
-		submitText = "Insert Nozzle",
-		inputs = { {
-			type = 'number',
-			isRequired = true,
-			name = 'amount',
-			text = 'The Tank Can Hold ' .. maxfuel .. ' More Liters.'
-		}}
-	})
-	if fuel then
-		if not fuel.amount then return end
-		if not holdingnozzle then return end
-		if (fuel.amount + finalfuel) >= 100 then
-			QBCore.Functions.Notify("Your tank cannot fit this!", "error")
+	if not holdingnozzle then return end
+	if (maxfuel + finalfuel) >= 100 then
+		QBCore.Functions.Notify("Your tank cannot fit this!", "error")
+	else
+		if GlobalTax(maxfuel * Config.CostMultiplier) + (maxfuel * Config.CostMultiplier) <= money then
+			local totalcost = (maxfuel * Config.CostMultiplier)
+			TriggerServerEvent('cdn-fuel:server:OpenMenu', totalcost, inGasStation, false, purchasetype)
 		else
-			if GlobalTax(fuel.amount * Config.CostMultiplier) + (fuel.amount * Config.CostMultiplier) <= money then
-				local totalcost = (fuel.amount * Config.CostMultiplier)
-				TriggerServerEvent('cdn-fuel:server:OpenMenu', totalcost, inGasStation, false, purchasetype)
-			else
-				QBCore.Functions.Notify("You can't afford this!", 'error', 7500)
-			end
+			QBCore.Functions.Notify("You can't afford this!", 'error', 7500)
 		end
 	end
 end)
