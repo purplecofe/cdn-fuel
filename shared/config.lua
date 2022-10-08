@@ -7,7 +7,7 @@ Config.VehicleBlowUp = true -- When true, there will be a configurable chance of
 Config.BlowUpChance = 5 -- percentage for chance of engine explosion (Default: 5% or 5) 
 Config.CostMultiplier = 3.0 -- Amount to multiply 1 by. This indicates fuel price. (Default: $3.0/l or 3.0)
 Config.GlobalTax = 15.0 -- The tax, in %, that people will be charged at the pump. (Default: 15% or 15.0)
-Config.FuelNozzleExplosion = false -- When true, it enables the fuel pump exploding when players run away with the nozzle.
+Config.FuelNozzleExplosion = true -- When true, it enables the fuel pump exploding when players run away with the nozzle.
 Config.FuelDecor = "_FUEL_LEVEL" -- Do not touch! (Default: "_FUEL_LEVEL")
 Config.RefuelTime = 600 -- Highly recommended to leave at 600. This value will be multiplied times the amount the player is fueling for the progress bar and cancellation logic! DON'T GO BELOW 250, performance WILL drop!
 Config.FuelTargetExport = false -- This is only used to fix this issue: https://github.com/CodineDev/cdn-fuel/issues/3. <br> <br> If you don't have this issue and haven't installed this exports in qb-target, then this should be false. Otherwise there will be an error.
@@ -19,7 +19,7 @@ Config.SyphonFuelDecor = Config.FuelDecor -- Do not touch! (Default: "_FUEL_LEVE
 Config.SyphonKitCap = 50 -- Maximum amount (in L) the syphon kit can fit!
 -- Police Stuff --
 Config.SyphonPoliceCallChance = 25 -- Math.Random(1, 100) Default: 25% 
-Config.SyphonDispatchSystem = "qb-default" -- Options: "ps-dispatch", "qb-dispatch", "qb-default" (just blips) or "custom" (Custom: you must configure yourself!)
+Config.SyphonDispatchSystem = "ps-dispatch" -- Options: "ps-dispatch", "qb-dispatch", "qb-default" (just blips) or "custom" (Custom: you must configure yourself!)
 -- Anims --
 Config.StealAnimDict = 'anim@amb@clubhouse@tutorial@bkr_tut_ig3@'-- Used for Syphoning
 Config.StealAnim = 'machinic_loop_mechandplayer'-- Used for Syphoning
@@ -32,7 +32,7 @@ Config.JerryCanPrice = 750 -- + Tax of 15%
 Config.JerryCanGas = 0 -- The amount of Gas that the Jerry Can you purchase comes with. This should not be bigger that your Config.JerryCanCap!
 -- End Jerry Can --
 -- Phone Stuff -- 
-Config.RenewedPhonePayment = false -- When true, payments will be sent to the players phone with a notification, giving them the opportunity to accept or decline payment. If the cancel after paying for fuel, money will be returned. 
+Config.RenewedPhonePayment = true -- When true, payments will be sent to the players phone with a notification, giving them the opportunity to accept or decline payment. If the cancel after paying for fuel, money will be returned. 
 -- End Phone Stuff -- 
 Config.Blacklist = { -- Blacklist certain vehicles, mostly electric vehicles. Use names or hashes. https://wiki.gtanet.work/index.php?title=Vehicle_Models
 	"surge",
