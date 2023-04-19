@@ -309,7 +309,7 @@ RegisterNetEvent('cdn-fuel:client:SendMenuToServer', function()
 	local playercashamount = QBCore.Functions.GetPlayerData().money['cash']
 	if not holdingnozzle then return end
 	if CurFuel < 95 then
-		exports['qb-menu']:openMenu({
+		exports['ps-ui']:openMenu({
 			{
 				header = "Gas Station",
 				isMenuHeader = true,
@@ -542,7 +542,7 @@ RegisterNetEvent('cdn-fuel:jerrycan:refuelmenu', function(itemData)
 		else fulltank = false
 		GasString = "Refuel your Jerry Can!"
 		end
-		exports['qb-menu']:openMenu({
+		exports['ps-ui']:openMenu({
 			{
 				header = "Jerry Can",
 				isMenuHeader = true,
@@ -573,7 +573,7 @@ RegisterNetEvent('cdn-fuel:jerrycan:refuelmenu', function(itemData)
 		else nogas = false
 		GasString = "Put your gasoline to use and refuel the vehicle!"
 		end
-		exports['qb-menu']:openMenu({
+		exports['ps-ui']:openMenu({
 			{
 				header = "Jerry Can",
 				isMenuHeader = true,
@@ -616,7 +616,7 @@ end)
 
 RegisterNetEvent('cdn-fuel:client:purchasejerrycan', function()
 	local playercashamount = QBCore.Functions.GetPlayerData().money['cash']
-	exports['qb-menu']:openMenu({
+	exports['ps-ui']:openMenu({
 		{
 			header = "Purchase Jerry Can for $"..(math.ceil(Config.JerryCanPrice + GlobalTax(Config.JerryCanPrice))),
 			isMenuHeader = true,
@@ -795,7 +795,7 @@ RegisterNetEvent('cdn-syphoning:syphon:menu', function(itemData)
 	local nogas
 	if itemData.info.gasamount < 1 then nogas = true Nogasstring = "You have no gas in your Syphon Kit!" else nogas = false Nogasstring = "Put your stolen gasoline to use and refuel the vehicle!" end
 	local syphonfull if itemData.info.gasamount == Config.SyphonKitCap then syphonfull = true Stealfuelstring = "Your Syphon Kit is full! It only fits " .. Config.SyphonKitCap .. "L!" elseif GetFuel(vehicle) < 1 then syphonfull = true Stealfuelstring = "This vehicle's fuel tank is empty." else syphonfull = false Stealfuelstring = "Steal fuel from an unsuspecting victim!" end -- Disable Options based on item data
-	exports['qb-menu']:openMenu({
+	exports['ps-ui']:openMenu({
 		{
 			header = "Syphoning Kit",
 			isMenuHeader = true,
