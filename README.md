@@ -1,25 +1,68 @@
 ![Codine Development Fuel Script Banner](https://i.imgur.com/qVOMMvW.png)
 
-### cdn-fuel
+# _CDN-Fuel (2.1.1)_ 
 
-A functionality fuel system based off of [ps-fuel](https://github.com/Project-Sloth/ps-fuel) that uses PolyZones that target fueling pumps and vehicles to allow you to refuel your vehicle, as well as interact-sound to play accurate refueling sounds.
+A highly in-depth fuel system for **FiveM** with support for the **QBCore Framework & QBox Remastered**.
 
-## Major Credits
+# _Lastest Patch Information_
+*Additions:*
+- Emergency Services Discounts (Config Enabled)
+- Air & Water Vehicle Fueling (Config Enabled)
+- Hose Attached To Nozzle (Config Enabled)
+- OX Library Support (Menu/Input/Inventory/Target) Additions.
+- QBox Framework now supported.
+- Electric Vehicles turn off when at 0 fuel. (Config Enabled)
 
-Major shoutout to the Project Sloth team. We based this script off of their wonderful ps-fuel script. We wanted to change it up a little bit, but ended up doing a lot more than originally planned, so we though we'd release this on it's own rather than PR things. (https://github.com/Project-Sloth/ps-fuel)
+*Fixes:*
+- Bank Payment Double Taxing Payments.
+- Paleto Locations PolyZone issue.
+- Fix Electric Vehicles Not Stopping On 0 Fuel
+- Fix Emergency Services Discounts
+- Fix Polyzone for MRPD Helicopter Refuel
+
+<br>
+<br>
+
+![Codine Development Fuel Script Features Banner](https://i.imgur.com/ISHQJUL.png)
+
+#### Why should you pick **cdn-fuel**?
+
+- Show all gas station blips via Config Options.
+- Vehicle blowing up chance percent via Config Options.
+- Pump Explosion Chance when running away with Nozzles via Config Options.
+- Global Tax and Fuel Prices via Config Options.
+- Target eye for all base fuel actions, not including Jerry Can & Syphoning.
+- Fuel and Charging Nozzle with realistic animations.
+- Custom sounds for every action, like refueling & charging.
+- Select amount of fuel you want to put in your vehicle.
+- On cancel, the amount you put in will be filled.
+- Option to pay cash or with your bank.
+- Toggleable Jerry Cans via Config Options.
+- [CDN-Syphoning](https://github.com/CodineDev/cdn-syphoning) built-in via Config Options.
+- Electric Charging with a [Custom Model](https://i.imgur.com/WDxGoT6.png) & pre-configured locations.
+- [Player Owned Gas Stations](https://www.youtube.com/watch?v=3glln0S2QXo) that can be maintained by the Owner.
+- [Highly User Friendly Menus](https://i.imgur.com/f64IxpA.png) for Gas Station Owners.
+- Reserve Levels which are maintained by the Owner of the Gas Station or Unlimited based on Config Options.
+- Renamable Gas Stations on Map with Blacklisted words.
+- Helicopter and Boat Refueling.
+- Configurable discounts for Emergency Services.
+- Configurable Hose for the Fuel Nozzle.
+- Official Support for the [OX Library](https://github.com/overextended/ox_lib). (Inventory/Menus/Target)
+
+
+![Codine Development Fuel Script Install Banner](https://i.imgur.com/bEiV8G0.png)
+
+### Before your installation:
+Make sure you have the following dependencies, otherwise, issues most likely will arise:
 
 ### Dependencies:
 
 - [qb-target](https://github.com/BerkieBb/qb-target)
-- [qb-menu](https://github.com/qbcore-framework/qb-menu)
-- [qb-input](https://github.com/qbcore-framework/qb-input)
+- [qb-menu](https://github.com/qbcore-framework/qb-menu) **&** [qb-input](https://github.com/qbcore-framework/qb-input) **OR** [ox_lib](https://github.com/overextended/ox_lib)
 - [interact-sound](https://github.com/plunkettscott/interact-sound)
-- [polyzone](https://github.com/qbcore-framework/PolyZone)
+- [PolyZone](https://github.com/qbcore-framework/PolyZone)
+- _Other dependencies are included in the resource._
 
-<br>
-<br>
-
-![Codine Development Fuel Script Install Banner](https://i.imgur.com/bEiV8G0.png)
 
 ### Begin your installation
 
@@ -35,7 +78,7 @@ First, we will start by renaming the resource "cdn-fuel-main" to just "cdn-fuel"
 
 Next, we're going to drag the sounds from the *cdn-fuel/assets/sounds* folder in cdn-fuel, into your interact-sounds folder located at *resources/[standalone]/interact-sound/client/html/sounds*
 
-![Step 2](https://i.imgur.com/4Mox2wP.gif)
+![explorer_8jBjdkgaeQ](https://user-images.githubusercontent.com/95599217/209605265-c8f67612-b8df-4c38-bf23-0c355cfa6c8e.gif)
 
 ### Step 3:
 
@@ -45,22 +88,59 @@ Next, we're going to open our entire resources folder in whichever IDE you use, 
 
 <br>
 
+### Step 4:
+
+Next, we're going to run our SQL file, which is needed if we want to use the Player Owned Gas Stations, otherwise you do not have to run it.
+
+<br> 
+
+The file you need to run is located @ _cdn-fuel/assets/sql/cdn-fuel.sql_
+
+<br> 
+
+Here is a GIF to run you through the process of running an SQL file:
+
+![Step4-Gif](https://user-images.githubusercontent.com/95599217/209601625-af7ee908-c367-48b1-8487-b52359148224.gif)
+
+### Step 5:
+
+It is highly recommended, if you plan on restarting the script at all, that you move the _stream_ folder & _data_file_ paramaters found in the _fxmanifest.lua_ to another resource for the time being. If you do not do this, you & anyone in the server's game will most likely crash when restarting _cdn-fuel_. The process is very simple & it is outlined in the GIF & Instructions below.
+
+<br>
+
+**Firstly**, we will move our _stream_ folder to our new resource, or existing resource. <br> <br> In this example, I have a dummy resource named _cdn-fool_.
+![explorer_4tflJ0RowY](https://user-images.githubusercontent.com/95599217/209604683-79e18fa7-96ad-456d-b0c4-20632fb4d04c.gif)
+
+
+Next, we will move our _fxmanifest.lua's_ entries for _data_file_ into our new resource, and **REMOVE IT** from _cdn-fuel_.
+
+![jRtUg319mL](https://user-images.githubusercontent.com/95599217/209604640-54e0a450-6a54-4afa-9fab-cda4f02e7091.gif)
+
+
+```Lua
+data_file 'DLC_ITYP_REQUEST' 'stream/[electric_nozzle]/electric_nozzle_typ.ytyp'
+data_file 'DLC_ITYP_REQUEST' 'stream/[electric_charger]/electric_charger_typ.ytyp'
+```
+
+Make sure to **ensure** this new resource as well as _cdn-fuel_ in your _server.cfg_!
+
+
 **If you do not want the Jerry Can or Syphoning Kit items, you are now finished with installation.**
 
 <br>
-*Otherwise, navigate to Step 4 & Step 5 below, and finish installation.*
+*Otherwise, navigate to Step 6 & Step 7 below, and finish installation.*
 
-### Step 4:
+### Step 6:
 We will now be installing the Jerry Can & Syphoning Kit items into your server. You don't have to install either, but they are recommended additions. You can install them & disable them in the config, until you want to use them later on! 
 <br> <br>
-If you plan to not use them, you can skip this Step and Step 5!
+If you plan to not use them, you can skip this Step and Step 7!
 <br> <br>
 The first step of installing our items is to navigate to your *qb-core/shared/items.lua*.
 <br> <br>
 Once there, we will paste the following items at the bottom of our items table.
-```
-	["syphoningkit"]				 = {["name"] = "syphoningkit", 					["label"] = "Syphoning Kit", 			["weight"] = 5000, 		["type"] = "item", 		["image"] = "syphoningkit.png", 		["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = "A kit made to siphon gasoline from vehicles."},
-	["jerrycan"]				 	 = {["name"] = "jerrycan", 						["label"] = "Jerry Can", 				["weight"] = 15000, 	["type"] = "item", 		["image"] = "jerrycan.png", 			["unique"] = true, 		["useable"] = true, 	["shouldClose"] = true,   ["combinable"] = nil,   ["description"] = "A Jerry Can made to hold gasoline."},
+```Lua
+	["syphoningkit"]				 = {["name"] = "syphoningkit", 					["label"] = "Syphoning Kit", 			["weight"] = 5000, 		["type"] = "item", 		["image"] = "syphoningkit.png", 		["unique"] = true, 		["useable"] = true, 	["shouldClose"] = false,   ["combinable"] = nil,   ["description"] = "A kit made to siphon gasoline from vehicles."},
+	["jerrycan"]				 	 = {["name"] = "jerrycan", 						["label"] = "Jerry Can", 				["weight"] = 15000, 	["type"] = "item", 		["image"] = "jerrycan.png", 			["unique"] = true, 		["useable"] = true, 	["shouldClose"] = false,   ["combinable"] = nil,   ["description"] = "A Jerry Can made to hold gasoline."},
 ```
 **For people using inventories with built-in decay, you must add those onto the item, as it doesn't come with it!**
 <br> <br>
@@ -72,12 +152,12 @@ Now, we need to format item data in our inventory. Firstly, find the *app.js* lo
 <br> <br>
 Now we will CTRL+F the following line:
 <br> 
-```
+```js
 } else if (itemData.name == "harness") {
 ```
 Once you have found this line, copy the following one line above it:
 <br> 
-```
+```js
         } else if (itemData.name == "syphoningkit") { // Syphoning Kit (CDN-Fuel or CDN-Syphoning!)
             $(".item-info-title").html("<p>" + itemData.label + "</p>");
             $(".item-info-description").html(
@@ -108,18 +188,18 @@ You can follow this GIF to get a better understanding:
 ![Step4ImagesGIF](https://i.imgur.com/C0uwjfX.gif)
 <br>
 
-### Step 5:
+### Step 6:
 This step is only necessary for you to be able to do the */giveitem* command or to put items in the qb-shops.
 
 Navigate to inventoryname/server/server.lua, and CTRL + F the following line:
-```
+```Lua
 				elseif itemData["name"] == "harness" then
 					info.uses = 20
 ```
 <br>
 Now we will add the following above the line below:
 
-```
+```Lua
 				elseif itemData["name"] == "syphoningkit" then
 					info.gasamount = 0
 				elseif itemData["name"] == "jerrycan" then
@@ -128,7 +208,7 @@ Now we will add the following above the line below:
 
 Alternatively, watch this GIF to better understand the process:
 <br>
-![Step 5 GIF](https://i.imgur.com/yrkR7cJ.gif)
+![Step6 GIF](https://i.imgur.com/yrkR7cJ.gif)
 
 <br> 
 
@@ -136,12 +216,12 @@ Alternatively, watch this GIF to better understand the process:
 
 Here are some preconfigured shop items if you wish to put them in the shop. (The Jerry Can is buyable via the Gas Pump!)
 
-```
+```Lua
         [10] = {
             name = "syphoningkit",
             price = 5000,
             amount = 5,
-            info = { gasamount = 0 },
+            info = { gasamount = 0 }, -- This must be included or, your item will not store fuel properly!
             type = "item",
             slot = 10,
         }, -- CDN-Fuel / CDN-Syphoning
@@ -149,7 +229,7 @@ Here are some preconfigured shop items if you wish to put them in the shop. (The
             name = "jerrycan",
             price = 750,
             amount = 5,
-            info = { gasamount = 0 },
+            info = { gasamount = 0 }, -- This must be included or, your item will not store fuel properly!
             type = "item",
             slot = 11,
         }, -- CDN-Fuel
@@ -170,17 +250,26 @@ There is a **possible** issue with *qb-target* if you are using the *Config.Glob
 <br> 
 
 Firstly, this option will have to be added to your *Config.TargetBones* under the bones you are having trouble with:
-```
+```Lua
             {
 				type = "client",
-				event = "cdn-fuel:client:RefuelMenu",
+				event = "cdn-fuel:client:SendMenuToServer",
 				icon = "fas fa-gas-pump",
 				label = "Insert Nozzle",
 				canInteract = function() return Allowrefuel end
             },
+	    {
+				type = "client",
+				action = function()
+					TriggerEvent('cdn-fuel:client:electric:RefuelMenu')
+				end,
+				icon = "fas fa-bolt",
+				label = "Insert Electric Nozzle",
+				canInteract = function() return AllowElectricRefuel end
+            },
 ```
 
-*Here is an example of how to add this option (ignore the different event names):*
+*Here is an example of how to add this option:*
 
 ![Step5part33 QB-Target](https://i.imgur.com/UOgPJRi.png)
 <br> 
@@ -191,21 +280,43 @@ Firstly, this option will have to be added to your *Config.TargetBones* under th
 
 *Next, we'll add this simple Function & Export into our QB-Target in the Functions() area:*
 
-```
-local function AllowRefuel(state) 
+```Lua
+local function AllowRefuel(state, electric) 
     if state then
-        Allowrefuel = true
+		if electric then
+			AllowElectricRefuel = true
+		else
+        	Allowrefuel = true
+		end
     else
-        Allowrefuel = false
+		if electric then
+			AllowElectricRefuel = false
+		else
+			Allowrefuel = false
+		end
     end
 end exports('AllowRefuel', AllowRefuel)
 ```
 
 <br> 
 
+
 **Example Image:**
 
 ![Step5 Part 421421412](https://i.imgur.com/pwpa5Tk.png)
+
+<br> 
+
+Lastly, add the following to the top of your _init.lua_ in QB-Target:
+```
+local Allowrefuel = false
+local AllowElectricRefuel = false
+```
+**Example Image:**
+
+![Example Image](https://user-images.githubusercontent.com/95599217/209600631-31c6f6f0-67e2-46da-bf52-f35114cfb1e9.png)
+
+
 
 Now, set the *Config.FuelTargetExport* in *cdn-fuel/shared/config.lua* to **true**.
 
@@ -213,32 +324,50 @@ Now, set the *Config.FuelTargetExport* in *cdn-fuel/shared/config.lua* to **true
 
 ![Step5 Part 1421942151251](https://i.imgur.com/InBl500.png)
 
+## ___Recommended Snippets:___
+
+We highly recommend you add the following snippet to your engine toggle command. It will make it to where players cannot turn their vehicle on if they have no fuel! Seems pretty important to us!
+
+##### ***Engine Toggle Snippet***
+```Lua
+-- FOR QB-VEHICLEKEYS, FUNCTION ToggleEngine();
+local NotifyCooldown = false
+function ToggleEngine(veh)
+    if veh then
+        local EngineOn = GetIsVehicleEngineRunning(veh)
+        if not isBlacklistedVehicle(veh) then
+            if HasKeys(QBCore.Functions.GetPlate(veh)) or AreKeysJobShared(veh) then
+                if EngineOn then
+                    SetVehicleEngineOn(veh, false, false, true)
+                else
+                    if exports['cdn-fuel']:GetFuel(veh) ~= 0 then
+                        SetVehicleEngineOn(veh, true, false, true)
+                    else
+                        if not NotifyCooldown then
+                            RequestAmbientAudioBank("DLC_PILOT_ENGINE_FAILURE_SOUNDS", 0)
+                            PlaySoundFromEntity(l_2613, "Landing_Tone", PlayerPedId(), "DLC_PILOT_ENGINE_FAILURE_SOUNDS", 0, 0)
+                            NotifyCooldown = true
+                            QBCore.Functions.Notify('No fuel..', 'error')
+                            Wait(1500)
+                            StopSound(l_2613)
+                            Wait(3500)
+                            NotifyCooldown = false
+                        end
+                    end                
+                end
+            end
+        end
+    end
+end
+```
+
+<br> 
+
 ### You are now officially done installing!
 
 <br> 
 
-Enjoy using **cdn-fuel**, if you have an issues, create an issue on the repository, and we will fix it **ASAP**!
-
-<br>
-<br>
-
-![Codine Development Fuel Script Features Banner](https://i.imgur.com/ISHQJUL.png)
-
-#### Some features to mention within cdn-fuel:
-
-- Show all gas station blips via Config Options.
-- Vehicle blowing up chance percent via Config Options.
-- Pump Explosion Chance when running away with Nozzle via Config Options.
-- Global tax and fuel prices via Config Options.
-- Target eye for all base fuel actions, not including Jerry Can & Syphoning.
-- Menu estimating cost for vehicle being refueled. (Tax Included)
-- Fuel Nozzle prop and realistic fueling animation.
-- Added sounds when taking and replacing fuel nozzle, as well as refueling.
-- Select amount of fuel you want to put in your vehicle.
-- On cancel, the amount you put in will be filled.
-- Option to pay cash or with your bank.
-- Toggleable Jerry Cans via Config Options.
-- [CDN-Syphoning](https://github.com/CodineDev/cdn-syphoning) built-in via Config Options.
+Enjoy using **cdn-fuel**, if you have an issues, [create an issue](https://github.com/CodineDev/cdn-fuel/issues/new/choose) on the repository, and we will fix it **ASAP**!
 
 <br>
 <br>
@@ -249,7 +378,8 @@ Enjoy using **cdn-fuel**, if you have an issues, create an issue on the reposito
 
 Here's a couple of videos showcasing the script in action!
 
-- [Main Fueling!](https://www.youtube.com/watch?v=1TimPMCfHsM) 
+- [Main Fueling & Charging!](https://www.youtube.com/watch?v=_h-66IDs8Kw)
+- [Player Owned Gas Stations!](https://www.youtube.com/watch?v=3glln0S2QXo)
 - [Jerry Cans!](https://www.youtube.com/watch?v=M14nZTzltB0)
 - [Siphoning!](https://youtu.be/2CJjM_9hmNA)
 
@@ -260,7 +390,8 @@ Here's a couple of videos showcasing the script in action!
 
 ### Future Plans
 
-Future Plans are located on the [Wiki Section](https://github.com/CodineDev/cdn-fuel/wiki) of this repository, labeled [CDN-Fuel Roadmap](https://github.com/CodineDev/cdn-fuel/wiki).
+- Oil Rig Integration.
+- Send more suggestions in our discord server!
 
 <br>
 <br>
@@ -275,5 +406,10 @@ Future Plans are located on the [Wiki Section](https://github.com/CodineDev/cdn-
 
 ### Credits:
 
-Massive shoutout once again to the team at [Project Sloth](https://github.com/Project-Sloth)! <br><br> They create super sick scripts that have changed the game when it comes to fivem server development.
-This script is based off of their [ps-fuel script](https://github.com/Project-Sloth/ps-fuel).
+- **OX Conversion:**
+<br><br><img src="https://avatars.githubusercontent.com/u/6962192?v=4" width="25" height="25">
+**[NoobySloth](https://github.com/noobysloth)**
+for making the initial **OX** portion of the script. 
+<br><br><img src="https://avatars.githubusercontent.com/u/82969741?v=4" width="25" height="25">
+**[xViperAG](https://www.github.com/xViperAG)**
+for adding more OX functionality & support for QBox Remastered.
