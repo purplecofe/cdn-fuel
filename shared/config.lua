@@ -27,13 +27,13 @@ Config.EmergencyServicesDiscount = {
 }
 Config.Core = 'qb-core' -- Change this to your core resources (Ex: 'qbx-core' | 'qb-core'), must be qb based!
 Config.Ox = {
-    Inventory = false, -- Uses OX_Inventory's metadata instead of QB-Inventory's.
-    Menu = false, -- Uses OX Libraries instead of qb-menu.
-    Input = false, -- Uses Ox Input Dialog instead of qb-input.
-    DrawText = false, -- Uses Ox DrawText instead of qb-core DrawText.
-    Progress = false -- Uses Ox ProgressBar instead of progressbar.
+    Inventory = true, -- Uses OX_Inventory's metadata instead of QB-Inventory's.
+    Menu = true, -- Uses OX Libraries instead of qb-menu.
+    Input = true, -- Uses Ox Input Dialog instead of qb-input.
+    DrawText = true, -- Uses Ox DrawText instead of qb-core DrawText.
+    Progress = true -- Uses Ox ProgressBar instead of progressbar.
 }
-Config.TargetResource = "qb-target" -- Supported: { 'qb-target', 'ox_target'} -- Others must use the same format as QB-Target or manual configuration is required.
+Config.TargetResource = "ox_target" -- Supported: { 'qb-target', 'ox_target'} -- Others must use the same format as QB-Target or manual configuration is required.
 Config.PumpHose = true -- If true, it creates a hose from the pump to the nozzle the client is holding, to give it a more realistic feel.
 Config.RopeType = { -- Options: 1-2-3-4-5; 1: Khaki Color, Kind of Thick, 2: Very Thick Khaki Rope, 3: Very Thick Black Rope, 4: Very Thin Black Rope, 5: Same as 3
     ['fuel'] = 1,
@@ -53,7 +53,7 @@ Config.VehicleShutoffOnLowFuel = { -- If enabled, vehicles will turn off when th
 -- 2.1.0 End
 
 -- Phone --
-Config.RenewedPhonePayment = false -- Enables use of Renewed-Phone Payment System and Notifications
+Config.RenewedPhonePayment = true -- Enables use of Renewed-Phone Payment System and Notifications
 Config.NPWD = false -- Enables phone notifications for New-Phone-Who-Dis.
 
 -- Syphoning --
@@ -79,7 +79,7 @@ Config.RefuelAnimation = "gar_ig_5_filling_can" -- This is for refueling and cha
 Config.RefuelAnimationDictionary = "timetable@gardener@filling_can" -- This is for refueling and charging.
 
 --- Player Owned Gas (Gasoline) Ergonomic Refueling Stations (Poggers) ---
-Config.PlayerOwnedGasStationsEnabled = true -- When true, peds will be located at all gas stations, and players will be able to talk with peds & purchase gas stations, having to manage fuel supplies.
+Config.PlayerOwnedGasStationsEnabled = false -- When true, peds will be located at all gas stations, and players will be able to talk with peds & purchase gas stations, having to manage fuel supplies.
 Config.StationFuelSalePercentage = 0.65 -- % of sales that the station gets. If they sell 4 Liters of Gas for $16 (not including taxes), they will get 16*Config.StationFuelSalePercentage back from the sale. Treat this as tax, also, it balances the profit margins a bit.
 Config.EmergencyShutOff = false -- When true, players can walk up to the ped and shut off the pumps at a gas station. While false, this option is disabled, because it can obviously be an issue. 
 Config.UnlimitedFuel = false -- When true, the fuel stations will not require refuelling by gas station owners, this is for the early stages of implementation.
